@@ -59,5 +59,9 @@ module RnelOrg
     #     render 'errors/505'
     #   end
     #
+
+    get "/" do
+      "Hello, world!"
+    end
   end
 end
