@@ -37,9 +37,6 @@ module RnelOrg
     # layout  :my_layout            # Layout can be in views/layouts/foo.ext or views/foo.ext (default :application)
     #
 
-    #layout File.expand_path('../../app/views/layouts/application.haml', __FILE__)
-    #layout Padrino.root('app/views/layouts/application')
-
     ##
     # You can configure for a specified environment like:
     #
@@ -66,9 +63,9 @@ module RnelOrg
       render "state/show"
     end
 
-    get :index, :with => :id do
-      state = State.new(:string => :id)
-      if state.valid?
+    get :index, :with => :state do
+      @state = State.new(:string => params[:state])
+      if @state.valid?
         render "state/show"
       else
         "howdy error"

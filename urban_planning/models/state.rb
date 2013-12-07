@@ -12,8 +12,7 @@ class State
   attr_reader :score
 
   def initialize(options)
-    @string = options[:string].to_s
-    puts @string
+    @string = options[:string]
     @valid = false
     parse_string
     compute_scores
@@ -54,4 +53,9 @@ class State
 
     @score = [@row_scores, @col_scores].flatten.inject(&:+)
   end
+end
+
+if $0 == __FILE__
+  s = State.new(:string => :vzt00)
+  puts s.valid?
 end

@@ -1,19 +1,3 @@
-/* swapElements(elm1, elm2)
- * Author: T.J. Crowder
- * http://stackoverflow.com/a/8034949/237176 */
-function swapElements(elm1, elm2) {
-  var parent1, next1,
-      parent2, next2;
-
-  parent1 = elm1.parentNode;
-  next1   = elm1.nextSibling;
-  parent2 = elm2.parentNode;
-  next2   = elm2.nextSibling;
-
-  parent1.insertBefore(elm2, next1);
-  parent2.insertBefore(elm1, next2);
-}
-
 $(function () {
   var row;
   var col;
@@ -24,16 +8,41 @@ $(function () {
             ($(snd).hasClass('house') && $(fst).hasClass('business')));
   }
 
+  function nextState() {
+    var DIGIT_TO_LETTER = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "j", "k", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "y", "z"];
+    var state = '';
+    var digit;
+    var selector;
+    for (row=0; row<limit; row+=1) {
+      digit = 0;
+      for (col=0; col<limit; col+=1) {
+        selector = '.row' + row + '.col' + col;
+        if ($(selector).hasClass('house')) {
+          digit += Math.pow(2, limit - col - 1);
+        }
+      }
+      state += DIGIT_TO_LETTER[digit];
+    }
+    return state;
+  }
+
   for (row=0; row<limit; row+=1) {
     for (col=0; col<limit; col+=1) {
       selector = '.row' + row + '.col' + col;
       $(selector).on('click', function () {
         $(this).toggleClass('selected');
         if ($('.selected').length == 2) {
-          if (needsSwapping($('.selected')[0], $('.selected')[1])) {
-            swapElements($('.selected')[0], $('.selected')[1]);
+          var fst = $('.selected')[0];
+          var snd = $('.selected')[1];
+          var ns = needsSwapping(fst, snd);
+          if (ns) {
+            $('.selected').toggleClass('house');
+            $('.selected').toggleClass('business');
           }
           $('.selected').toggleClass('selected');
+          if (ns) {
+            window.location.href = '/urban_planning/' + nextState();
+          }
         }
       });
     }
