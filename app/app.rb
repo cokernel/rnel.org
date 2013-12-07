@@ -1,7 +1,7 @@
 module RnelOrg
   class App < Padrino::Application
     register SassInitializer
-    use ActiveRecord::ConnectionAdapters::ConnectionManagement
+    #use ActiveRecord::ConnectionAdapters::ConnectionManagement
     register Padrino::Rendering
     register Padrino::Mailer
     register Padrino::Helpers
