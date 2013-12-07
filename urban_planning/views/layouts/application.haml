@@ -2,6 +2,7 @@
 %html
   %head
     %title= yield_content(:title)
+    %link{:href => '/favicon.png', :rel => 'icon'}
     %link{:href => "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css", :rel => "stylesheet"}
     =javascript_include_tag 'jquery', 'jquery-ujs', 'application'
     =stylesheet_link_tag 'application'

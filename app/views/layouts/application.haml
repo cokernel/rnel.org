@@ -2,6 +2,7 @@
 %html
   %head
     %title= yield_content(:title)
+    %link{:href => '/favicon.png', :rel => 'icon'}
     =stylesheet_link_tag 'application'
   %body
     %h1= yield_content(:title)
