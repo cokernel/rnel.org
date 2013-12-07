@@ -3,9 +3,10 @@
 %table
   - @state.rows.each_with_index do |row, i|
     %tr
-      - row.each do |cell|
+      - row.each_with_index do |cell, j|
         %td
-          = cell
+          %span{:class => "#{hb_class_for(cell)} row#{i} col#{j}"}
+            = hb_for(cell)
       %td
         = @state.row_scores[i]
   %tr
