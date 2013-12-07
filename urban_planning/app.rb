@@ -37,6 +37,9 @@ module RnelOrg
     # layout  :my_layout            # Layout can be in views/layouts/foo.ext or views/foo.ext (default :application)
     #
 
+    #layout File.expand_path('../../app/views/layouts/application.haml', __FILE__)
+    #layout Padrino.root('app/views/layouts/application')
+
     ##
     # You can configure for a specified environment like:
     #

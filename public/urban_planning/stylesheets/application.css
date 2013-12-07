@@ -1,0 +1,23 @@
+body {
+  background-color: #fafafa;
+}
+
+.board {
+  margin: auto;
+}
+
+.cell:hover {
+  background-color: #eaeaea;
+}
+
+.selected {
+  background-color: #ffba00;
+}
+
+.house {
+  color: #086ca2;
+}
+
+.business {
+  color: #ff3900;
+}

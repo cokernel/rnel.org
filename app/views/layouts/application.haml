@@ -1,0 +1,8 @@
+!!!
+%html
+  %head
+    %title= yield_content(:title)
+    =stylesheet_link_tag 'application'
+  %body
+    %h1= yield_content(:title)
+    =yield

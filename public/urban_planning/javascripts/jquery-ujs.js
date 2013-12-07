@@ -1,0 +1,1 @@
+../../javascripts/jquery-ujs.js
