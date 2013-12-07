@@ -6,12 +6,4 @@ RnelOrg::UrbanPlanning.helpers do
       'fa fa-suitcase cell business'
     end
   end
-
-  def hb_for(cell)
-    if 1 == cell
-      'H'
-    else
-      'B'
-    end
-  end
 end
