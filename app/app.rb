@@ -60,8 +60,8 @@ module RnelOrg
     #   end
     #
 
-    get "/" do
-      "Hello, world!"
+    get :index do
+      render "app/index"
     end
   end
 end
