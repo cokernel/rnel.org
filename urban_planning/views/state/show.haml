@@ -1,0 +1,16 @@
+%h1 Urban Planning: The Game
+
+%table
+  - @state.rows.each_with_index do |row, i|
+    %tr
+      - row.each do |cell|
+        %td
+          = cell
+      %td
+        = @state.row_scores[i]
+  %tr
+    - @state.col_scores.each do |col|
+      %td
+        = col
+    %td
+      = @state.score

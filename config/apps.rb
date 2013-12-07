@@ -34,3 +34,5 @@ end
 
 # Mounts the core application for this project
 Padrino.mount('RnelOrg::App', :app_file => Padrino.root('app/app.rb')).to('/')
+
+Padrino.mount('RnelOrg::UrbanPlanning', :app_file => Padrino.root('urban_planning/app.rb')).to('/urban_planning')
