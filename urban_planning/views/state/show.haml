@@ -1,17 +1,24 @@
-%h1 Urban Planning: The Game
+!!!
+%html
+  %head
+    %title Urban Planning: The Game
+    %link{:href => "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css", :rel => "stylesheet"}
+    =stylesheet_link_tag 'base'
 
-%table
-  - @state.rows.each_with_index do |row, i|
-    %tr
-      - row.each_with_index do |cell, j|
+  %body
+    %h1 Urban Planning: The Game
+    
+    %table
+      - @state.rows.each_with_index do |row, i|
+        %tr
+          - row.each_with_index do |cell, j|
+            %td
+              %i{:class => "#{hb_class_for(cell)} row#{i} col#{j}"}
+          %td
+            = @state.row_scores[i]
+      %tr
+        - @state.col_scores.each do |col|
+          %td
+            = col
         %td
-          %span{:class => "#{hb_class_for(cell)} row#{i} col#{j}"}
-            = hb_for(cell)
-      %td
-        = @state.row_scores[i]
-  %tr
-    - @state.col_scores.each do |col|
-      %td
-        = col
-    %td
-      = @state.score
+          = @state.score

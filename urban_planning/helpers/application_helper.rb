@@ -1,9 +1,9 @@
 RnelOrg::UrbanPlanning.helpers do
   def hb_class_for(cell)
     if 1 == cell
-      'house'
+      'fa fa-home house'
     else
-      'business'
+      'fa fa-suitcase business'
     end
   end
 
